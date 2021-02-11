@@ -3,9 +3,9 @@ class Product {
     static nbTotal = 0;
 
     constructor(price, description) {
-        const paddedRef = ("" + nbTotal).padStart(6, "0");
+        const paddedRef = ("" + Product.nbTotal).padStart(6, "0");
         this.ref = `#${paddedRef}`;
-        this.nbTotal++;
+        Product.nbTotal++;
         this.price = price;
         this.description = description
     }

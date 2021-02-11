@@ -17,7 +17,7 @@ function displayProduct(product) {
             </div>
     </div>`
     divGen.appendChild(divProduct)
-    divProduct.setAttribute("product")
+    divProduct.classList.add("product")
    }
 
 function buildProductList(allProducts) {
