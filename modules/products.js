@@ -22,7 +22,7 @@ const products = [
 ];
 
 function search(keywords) {
-    return products.filter(e => e.description.includes(keywords));
+    return products.filter(e => e.ref.includes(keywords) || e.description.includes(keywords));
 }
 
 export {

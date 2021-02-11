@@ -1,3 +1,5 @@
+import { displayCart } from "./ui.js"
+
 const cart = [];
 
 function addToCart(prod) {
@@ -7,8 +9,10 @@ function addToCart(prod) {
     } else {
         cart[index].qty++;
     }
+    displayCart();
 }
 
 export {
-    addToCart
+    addToCart,
+    cart
 };
