@@ -1,14 +1,18 @@
-import { buildProductList } from "./ui.js";
+import { buildProductList, displayCart } from "./ui.js";
 import { products, search } from "./products.js";
 import { addToCart, emptyCart, cart } from "./cart.js";
 
 function init() {
-    if (JSON.parse(localStorage.getItem("cart")) != null) {
-        let temp = JSON.parse(localStorage.getItem("cart"));
+
+    // Restitution du cart stocké dans le localStorage
+    const temp = JSON.parse(localStorage.getItem("cart"));
+    if (temp) {
         temp.forEach(element => {
-            addToCart(element);
+            cart.push(element);
         });
+        displayCart();// Mise à jour de l'affichage après la restitution
     }
+
     buildProductList(products, addToCartHandler);
     document.getElementById("product-search").addEventListener("keyup", e => {
         if (e.key === "Enter") {
