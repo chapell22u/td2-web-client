@@ -1,6 +1,6 @@
-import { buildProductList } from "./ui.js";
+import { buildProductList, displayCart } from "./ui.js";
 import { products, search } from "./products.js";
-import { addToCart } from "./cart.js";
+import { addToCart, emptyCart } from "./cart.js";
 
 function init() {
     buildProductList(products, addToCartHandler);
@@ -9,6 +9,9 @@ function init() {
             const result = search(e.target.value);
             buildProductList(result, addToCartHandler);
         }
+    })
+    document.getElementById("empty-cart").addEventListener("click", e => {
+        emptyCart();
     })
 }
 
