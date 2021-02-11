@@ -9,12 +9,14 @@ function addToCart(prod) {
     } else {
         cart[index].qty++;
     }
+    localStorage.setItem("cart", JSON.stringify(cart));
     displayCart();
 }
 
 function emptyCart() {
     cart.length = 0;
     displayCart();
+    localStorage.clear();
 }
 
 export {

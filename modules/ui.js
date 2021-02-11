@@ -1,4 +1,4 @@
-import { addToCart, cart } from "./cart.js";
+import { cart } from "./cart.js";
 
 function displayProduct(product, handlerAddToCart) {
     let divGen = document.getElementById("product-list");
