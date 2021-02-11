@@ -21,4 +21,11 @@ const products = [
     new Product(49.95, "Cerf-Volant de chez Lidl")
 ];
 
-export default products;
+function search(keywords) {
+    return products.filter(e => e.description.includes(keywords));
+}
+
+export {
+    products,
+    search
+}
