@@ -12,7 +12,13 @@ function addToCart(prod) {
     displayCart();
 }
 
+function emptyCart() {
+    cart.length = 0;
+    displayCart();
+}
+
 export {
+    emptyCart,
     addToCart,
     cart
 };
