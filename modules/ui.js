@@ -1,3 +1,5 @@
+import { addToCart } from "./cart.js";
+
 function displayProduct(product) {
     let divGen = document.getElementById("product-list");
     let divProduct = document.createElement("div")
@@ -17,7 +19,12 @@ function displayProduct(product) {
             </div>
     </div>`
     divGen.appendChild(divProduct)
-    divProduct.classList.add("product")
+    divProduct.classList.add("product");
+
+    const addingButton = divProduct.querySelector(".product-add2cart");
+    addingButton.addEventListener("click", e => {
+        addToCart(product)
+    })
    }
 
 function buildProductList(allProducts) {

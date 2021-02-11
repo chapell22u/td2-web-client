@@ -1,13 +1,14 @@
-var cart = [];
+const cart = [];
 
 function addToCart(prod) {
-    let prodQty = {product : prod, qty: 1};
-    if (cart.includes(prodQty.product)) {
-        let index = cart.indexOf(prodQty)
+    const index = cart.findIndex(e => e.product === prod);
+    if (index === -1) {
+        cart.push({product: prod, qty: 1});
+    } else {
         cart[index].qty++;
-    }else{
-        cart.push(prodQty)
     }
 }
 
-export default addToCart;
+export {
+    addToCart
+};
