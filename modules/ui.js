@@ -21,6 +21,7 @@ function displayProduct(product) {
    }
 
 function buildProductList(allProducts) {
+    document.getElementById("product-list").innerHTML = "";
     allProducts.forEach(product => {
         displayProduct(product);
     });
