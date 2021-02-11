@@ -1,10 +1,11 @@
 import { addToCart, cart } from "./cart.js";
 
-function displayProduct(product) {
+function displayProduct(product, handlerAddToCart) {
     let divGen = document.getElementById("product-list");
     let divProduct = document.createElement("div")
+    const photo = (product.photo) ? `<img class="product-thumbnail" src=${product.photo} alt="Photo non trouvée" >` : '<span class="mdi mdi-camera"></span>'
     divProduct.innerHTML = `<div class="photo">
-            <span class="mdi mdi-camera"></span>
+            ${photo}
             <a class="product-add2cart">
                 <span class="mdi mdi-cart"></span>
             </a>
@@ -23,14 +24,14 @@ function displayProduct(product) {
 
     const addingButton = divProduct.querySelector(".product-add2cart");
     addingButton.addEventListener("click", e => {
-        addToCart(product)
+        handlerAddToCart(product)
     });
 }
 
-function buildProductList(allProducts) {
+function buildProductList(allProducts, handlerAddToCart) {
     document.getElementById("product-list").innerHTML = "";
     allProducts.forEach(product => {
-        displayProduct(product);
+        displayProduct(product, handlerAddToCart); 
     });
 }
 
@@ -44,7 +45,6 @@ function displayCart() {
             <td data-type="amount">${elem.product.price}</td>
         </tr>`
     }).reduce((a, b) => a + b, "");
-    console.log(cart, html)
     cartContent.innerHTML = html;
 
     const cartFooter = document.getElementById("cart-footer");
